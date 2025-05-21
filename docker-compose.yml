@@ -25,7 +25,6 @@ services:
       # Default configuration for persist_directory in chromadb/config.py
       # Read more about deployments: https://docs.trychroma.com/deployment
       - chroma-data:/chroma/chroma
-    command: "--workers 1 --host 0.0.0.0 --port 8000 --proxy-headers --log-config chromadb/log_config.yml --timeout-keep-alive 30"
     environment:
       - IS_PERSISTENT=TRUE
     restart: unless-stopped # possible values are: "no", always", "on-failure", "unless-stopped"

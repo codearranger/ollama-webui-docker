@@ -61,9 +61,13 @@ services:
 
   tunnel:
     image: cloudflare/cloudflared:latest
+    pull_policy: always
     restart: unless-stopped
+    expose:
+      - 43337/tcp
     environment:
       - TUNNEL_URL=http://webui:8080
+      - TUNNEL_METRICS=0.0.0.0:43337
     command: tunnel --no-autoupdate
     depends_on:
       - webui

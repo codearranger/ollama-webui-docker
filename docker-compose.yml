@@ -69,10 +69,10 @@ services:
     pull_policy: always
     restart: unless-stopped
     expose:
-      - 43337/tcp
+      - 20241/tcp
     environment:
       - TUNNEL_URL=http://webui:8080
-      - TUNNEL_METRICS=0.0.0.0:43337
+      - TUNNEL_METRICS=0.0.0.0:20241
     command: tunnel --no-autoupdate
     depends_on:
       - webui
